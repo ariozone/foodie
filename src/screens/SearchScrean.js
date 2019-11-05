@@ -3,10 +3,14 @@ import { View, Text, StyleSheet } from "react-native"
 import SearchBar from "../components/SearchBar"
 
 const SearchScreen = () => {
+  const [query, setQuery] = React.useState("")
   return (
     <View>
-      <SearchBar></SearchBar>
-      <Text>Search Screen</Text>
+      <SearchBar
+        query={query}
+        onQueryChange={input => setQuery(input)}
+      ></SearchBar>
+      <Text>Searching for: {query}</Text>
     </View>
   )
 }
