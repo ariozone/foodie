@@ -9,6 +9,7 @@ const SearchScreen = () => {
       <SearchBar
         query={query}
         onQueryChange={input => setQuery(input)}
+        onSubmit={() => console.log("submitted")}
       ></SearchBar>
       <Text>Searching for: {query}</Text>
     </View>
