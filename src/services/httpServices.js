@@ -1,6 +1,10 @@
 import axios from "axios"
-require("dotenv").config()
-export default axios.create({
+import credentials from "../../environment"
+
+const yelp = axios.create({
   baseURL: "https://api.yelp.com/v3/businesses",
-  Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`
+  headers: {
+    Authorization: `Bearer ${credentials.API_KEY}`
+  }
 })
+export default yelp
