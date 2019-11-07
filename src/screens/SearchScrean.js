@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react"
-import { View, Text, StyleSheet } from "react-native"
+import { View, Text, StyleSheet, Image } from "react-native"
 import SearchBar from "../components/SearchBar"
 import useBusinesses from "../hooks/useBusinesses"
+import BusinessesList from "../components/BusinessesList"
 
 const SearchScreen = () => {
   const [query, setQuery] = useState("")
@@ -17,7 +18,13 @@ const SearchScreen = () => {
       {errorMessage ? (
         <Text>{errorMessage}</Text>
       ) : (
-        <Text>Found {results.length} restaurants.</Text>
+        <View>
+          <Text>Found {results.length} restaurants.</Text>
+
+          <BusinessesList title='$'></BusinessesList>
+          <BusinessesList title='$$'></BusinessesList>
+          <BusinessesList title='$$$'></BusinessesList>
+        </View>
       )}
     </View>
   )
