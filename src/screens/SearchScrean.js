@@ -1,17 +1,31 @@
-import React from "react"
-import { View, Text, StyleSheet } from "react-native"
+import React, { useState, useEffect } from "react"
+import { View, Text, StyleSheet, Image } from "react-native"
 import SearchBar from "../components/SearchBar"
+import useBusinesses from "../hooks/useBusinesses"
+import BusinessesList from "../components/BusinessesList"
 
 const SearchScreen = () => {
-  const [query, setQuery] = React.useState("")
+  const [query, setQuery] = useState("")
+  const [searchApi, results, errorMessage] = useBusinesses()
+
   return (
     <View>
       <SearchBar
         query={query}
-        onQueryChange={input => setQuery(input)}
-        onSubmit={() => console.log("submitted")}
+        onQueryChange={setQuery}
+        onSubmit={() => searchApi(query)}
       ></SearchBar>
-      <Text>Searching for: {query}</Text>
+      {errorMessage ? (
+        <Text>{errorMessage}</Text>
+      ) : (
+        <View>
+          <Text>Found {results.length} restaurants.</Text>
+
+          <BusinessesList title='$'></BusinessesList>
+          <BusinessesList title='$$'></BusinessesList>
+          <BusinessesList title='$$$'></BusinessesList>
+        </View>
+      )}
     </View>
   )
 }
