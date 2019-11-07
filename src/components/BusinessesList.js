@@ -1,5 +1,5 @@
 import React from "react"
-import { Text, View, StyleSheet } from "react-native"
+import { Text, View, StyleSheet, FlatList } from "react-native"
 
 const BusinessesList = ({ title, businesses }) => {
   return (
@@ -8,6 +8,12 @@ const BusinessesList = ({ title, businesses }) => {
       <Text>
         Number or {title} Businesses: {businesses.length}
       </Text>
+      <FlatList
+        horizontal
+        data={businesses}
+        keyExtractor={business => business.id}
+        renderItem={({ item }) => <Text>{item.name}</Text>}
+      ></FlatList>
     </View>
   )
 }

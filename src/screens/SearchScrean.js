@@ -37,6 +37,10 @@ const SearchScreen = () => {
             businesses={filterByPrice("$$$")}
             title='$$$'
           ></BusinessesList>
+          <BusinessesList
+            businesses={filterByPrice("$$$$")}
+            title='$$$$'
+          ></BusinessesList>
         </View>
       )}
     </View>
