@@ -1,10 +1,13 @@
 import React from "react"
 import { Text, View, StyleSheet } from "react-native"
 
-const BusinessesList = ({ title }) => {
+const BusinessesList = ({ title, businesses }) => {
   return (
     <View>
-      <Text style={styles.titleStyle}>{title} Businesses</Text>
+      <Text style={styles.titleStyle}>{title} </Text>
+      <Text>
+        Number or {title} Businesses: {businesses.length}
+      </Text>
     </View>
   )
 }

@@ -8,6 +8,10 @@ const SearchScreen = () => {
   const [query, setQuery] = useState("")
   const [searchApi, results, errorMessage] = useBusinesses()
 
+  const filterByPrice = price => {
+    return results.filter(result => result.price === price)
+  }
+
   return (
     <View>
       <SearchBar
@@ -21,9 +25,18 @@ const SearchScreen = () => {
         <View>
           <Text>Found {results.length} restaurants.</Text>
 
-          <BusinessesList title='$'></BusinessesList>
-          <BusinessesList title='$$'></BusinessesList>
-          <BusinessesList title='$$$'></BusinessesList>
+          <BusinessesList
+            businesses={filterByPrice("$")}
+            title='$'
+          ></BusinessesList>
+          <BusinessesList
+            businesses={filterByPrice("$$")}
+            title='$$'
+          ></BusinessesList>
+          <BusinessesList
+            businesses={filterByPrice("$$$")}
+            title='$$$'
+          ></BusinessesList>
         </View>
       )}
     </View>
