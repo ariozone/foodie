@@ -1,5 +1,6 @@
 import React from "react"
 import { Text, View, StyleSheet, FlatList } from "react-native"
+import BusinessDetails from "./BusinessDetails"
 
 const BusinessesList = ({ title, businesses }) => {
   return (
@@ -12,7 +13,9 @@ const BusinessesList = ({ title, businesses }) => {
         horizontal
         data={businesses}
         keyExtractor={business => business.id}
-        renderItem={({ item }) => <Text>{item.name}</Text>}
+        renderItem={({ item }) => (
+          <BusinessDetails details={item}></BusinessDetails>
+        )}
       ></FlatList>
     </View>
   )
