@@ -10,6 +10,9 @@ const BusinessDetails = ({ details }) => {
         title={details.name}
       ></Image>
       <Text style={styles.nameStyles}>{details.name}</Text>
+      <Text style={styles.reviewStyles}>
+        {details.rating} Stars, {details.review_count} Reviews
+      </Text>
     </View>
   )
 }
@@ -22,6 +25,9 @@ const styles = StyleSheet.create({
   },
   nameStyles: {
     fontWeight: "bold"
+  },
+  reviewStyles: {
+    color: "gray"
   }
 })
 export default BusinessDetails

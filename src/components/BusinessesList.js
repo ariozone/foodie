@@ -6,9 +6,9 @@ const BusinessesList = ({ title, businesses }) => {
   return (
     <View>
       <Text style={styles.titleStyle}>{title} </Text>
-      <Text>
+      {/* <Text>
         Number or {title} Businesses: {businesses.length}
-      </Text>
+      </Text> */}
       <FlatList
         horizontal
         data={businesses}
