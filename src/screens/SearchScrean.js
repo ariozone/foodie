@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { View, Text, StyleSheet } from "react-native"
+import { View, Text, StyleSheet, ScrollView } from "react-native"
 import SearchBar from "../components/SearchBar"
 import useBusinesses from "../hooks/useBusinesses"
 import BusinessesList from "../components/BusinessesList"
@@ -13,7 +13,7 @@ const SearchScreen = () => {
   }
 
   return (
-    <View>
+    <>
       <SearchBar
         query={query}
         onQueryChange={setQuery}
@@ -22,28 +22,29 @@ const SearchScreen = () => {
       {errorMessage ? (
         <Text>{errorMessage}</Text>
       ) : (
-        <View>
-          <Text>Found {results.length} restaurants.</Text>
-
-          <BusinessesList
-            businesses={filterByPrice("$")}
-            title='$'
-          ></BusinessesList>
-          <BusinessesList
-            businesses={filterByPrice("$$")}
-            title='$$'
-          ></BusinessesList>
-          <BusinessesList
-            businesses={filterByPrice("$$$")}
-            title='$$$'
-          ></BusinessesList>
-          <BusinessesList
-            businesses={filterByPrice("$$$$")}
-            title='$$$$'
-          ></BusinessesList>
-        </View>
+        <ScrollView>
+          <View>
+            {/* <Text>Found {results.length} restaurants.</Text> */}
+            <BusinessesList
+              businesses={filterByPrice("$")}
+              title='$'
+            ></BusinessesList>
+            <BusinessesList
+              businesses={filterByPrice("$$")}
+              title='$$'
+            ></BusinessesList>
+            <BusinessesList
+              businesses={filterByPrice("$$$")}
+              title='$$$'
+            ></BusinessesList>
+            <BusinessesList
+              businesses={filterByPrice("$$$$")}
+              title='$$$$'
+            ></BusinessesList>
+          </View>
+        </ScrollView>
       )}
-    </View>
+    </>
   )
 }
 const Styles = StyleSheet.create({
