@@ -24,7 +24,10 @@ const styles = StyleSheet.create({
   titleStyle: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "green"
+    color: "green",
+    marginLeft: 15,
+    marginTop: 10,
+    marginBottom: 5
   }
 })
 export default BusinessesList

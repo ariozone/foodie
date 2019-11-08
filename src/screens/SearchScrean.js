@@ -46,5 +46,9 @@ const SearchScreen = () => {
     </View>
   )
 }
-const Styles = StyleSheet.create({})
+const Styles = StyleSheet.create({
+  container: {
+    marginHorizontal: 10
+  }
+})
 export default SearchScreen
