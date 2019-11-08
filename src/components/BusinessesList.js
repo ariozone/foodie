@@ -5,7 +5,7 @@ import BusinessDetails from "./BusinessDetails"
 const BusinessesList = ({ title, businesses }) => {
   return (
     <View>
-      <Text style={styles.titleStyle}>{title} </Text>
+      <Text style={styles.titleStyle}>{businesses.length > 0 && title} </Text>
       {/* <Text>
         Number or {title} Businesses: {businesses.length}
       </Text> */}
