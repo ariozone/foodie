@@ -4,14 +4,13 @@ import SearchBar from "../components/SearchBar"
 import useBusinesses from "../hooks/useBusinesses"
 import BusinessesList from "../components/BusinessesList"
 
-const SearchScreen = props => {
+const SearchScreen = ({ navigation }) => {
   const [query, setQuery] = useState("")
   const [searchApi, results, errorMessage] = useBusinesses()
 
   const filterByPrice = price => {
     return results.filter(result => result.price === price)
   }
-  console.log(props)
   return (
     <>
       <SearchBar
@@ -28,18 +27,22 @@ const SearchScreen = props => {
             <BusinessesList
               businesses={filterByPrice("$")}
               title='$'
+              navigation={navigation}
             ></BusinessesList>
             <BusinessesList
               businesses={filterByPrice("$$")}
               title='$$'
+              navigation={navigation}
             ></BusinessesList>
             <BusinessesList
               businesses={filterByPrice("$$$")}
               title='$$$'
+              navigation={navigation}
             ></BusinessesList>
             <BusinessesList
               businesses={filterByPrice("$$$$")}
               title='$$$$'
+              navigation={navigation}
             ></BusinessesList>
           </View>
         </ScrollView>
