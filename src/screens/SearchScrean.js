@@ -4,7 +4,7 @@ import SearchBar from "../components/SearchBar"
 import useBusinesses from "../hooks/useBusinesses"
 import BusinessesList from "../components/BusinessesList"
 
-const SearchScreen = ({ navigation }) => {
+const SearchScreen = () => {
   const [query, setQuery] = useState("")
   const [searchApi, results, errorMessage] = useBusinesses()
 
@@ -14,6 +14,7 @@ const SearchScreen = ({ navigation }) => {
   return (
     <>
       <SearchBar
+        style={styles.searchStyle}
         query={query}
         onQueryChange={setQuery}
         onSubmit={() => searchApi(query)}
@@ -23,26 +24,21 @@ const SearchScreen = ({ navigation }) => {
       ) : (
         <ScrollView>
           <View>
-            {/* <Text>Found {results.length} restaurants.</Text> */}
             <BusinessesList
               businesses={filterByPrice("$")}
               title='$'
-              navigation={navigation}
             ></BusinessesList>
             <BusinessesList
               businesses={filterByPrice("$$")}
               title='$$'
-              navigation={navigation}
             ></BusinessesList>
             <BusinessesList
               businesses={filterByPrice("$$$")}
               title='$$$'
-              navigation={navigation}
             ></BusinessesList>
             <BusinessesList
               businesses={filterByPrice("$$$$")}
               title='$$$$'
-              navigation={navigation}
             ></BusinessesList>
           </View>
         </ScrollView>
@@ -50,9 +46,7 @@ const SearchScreen = ({ navigation }) => {
     </>
   )
 }
-const Styles = StyleSheet.create({
-  container: {
-    marginHorizontal: 10
-  }
+const styles = StyleSheet.create({
+  searchStyles: {}
 })
 export default SearchScreen

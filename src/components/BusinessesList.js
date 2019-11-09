@@ -6,15 +6,13 @@ import {
   FlatList,
   TouchableOpacity
 } from "react-native"
+import { withNavigation } from "react-navigation"
 import BusinessDetails from "./BusinessDetails"
 
 const BusinessesList = ({ title, businesses, navigation }) => {
   return (
     <View>
       <Text style={styles.titleStyle}>{businesses.length > 0 && title} </Text>
-      {/* <Text>
-        Number or {title} Businesses: {businesses.length}
-      </Text> */}
       <FlatList
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -39,4 +37,4 @@ const styles = StyleSheet.create({
     marginBottom: 5
   }
 })
-export default BusinessesList
+export default withNavigation(BusinessesList)

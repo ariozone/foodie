@@ -11,10 +11,11 @@ const navigator = createStackNavigator(
     initialRouteName: "Search",
     defaultNavigationOptions: {
       title: "Foodie",
+
       headerStyle: { backgroundColor: "red" },
       headerTitleStyle: {
         color: "#ffffff",
-        fontSize: 25,
+        fontSize: 30,
         fontFamily: "AppleSDGothicNeo-Bold"
       }
     }

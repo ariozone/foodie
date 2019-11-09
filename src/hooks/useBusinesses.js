@@ -12,7 +12,12 @@ export default () => {
   const searchApi = async searchQuery => {
     try {
       const response = await yelp.get("/search", {
-        params: { limit: 50, term: searchQuery, location: "irvine" }
+        params: {
+          limit: 50,
+          term: searchQuery,
+          location: "irvine",
+          categories: "food,bars,restaurants"
+        }
       })
       setResults(response.data.businesses)
     } catch (err) {
