@@ -19,7 +19,9 @@ const BusinessesList = ({ title, businesses, navigation }) => {
         data={businesses}
         keyExtractor={business => business.id}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => navigation.navigate("BusinessShow")}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("BusinessShow", { id: item.id })}
+          >
             <BusinessDetails details={item}></BusinessDetails>
           </TouchableOpacity>
         )}
