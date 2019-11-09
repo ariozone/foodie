@@ -1,10 +1,11 @@
 import { createAppContainer } from "react-navigation"
 import { createStackNavigator } from "react-navigation-stack"
 import SearchScreen from "./src/screens/SearchScrean"
-
+import BusinessShowScreen from "./src/screens/BusinessShowScreen"
 const navigator = createStackNavigator(
   {
-    Search: SearchScreen
+    Search: SearchScreen,
+    BusinessShow: BusinessShowScreen
   },
   {
     initialRouteName: "Search",
@@ -13,7 +14,8 @@ const navigator = createStackNavigator(
       headerStyle: { backgroundColor: "red" },
       headerTitleStyle: {
         color: "#ffffff",
-        fontSize: 25
+        fontSize: 25,
+        fontFamily: "AppleSDGothicNeo-Bold"
       }
     }
   }

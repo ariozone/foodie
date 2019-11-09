@@ -4,14 +4,14 @@ import SearchBar from "../components/SearchBar"
 import useBusinesses from "../hooks/useBusinesses"
 import BusinessesList from "../components/BusinessesList"
 
-const SearchScreen = () => {
+const SearchScreen = props => {
   const [query, setQuery] = useState("")
   const [searchApi, results, errorMessage] = useBusinesses()
 
   const filterByPrice = price => {
     return results.filter(result => result.price === price)
   }
-
+  console.log(props)
   return (
     <>
       <SearchBar
