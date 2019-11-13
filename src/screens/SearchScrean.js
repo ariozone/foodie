@@ -48,7 +48,7 @@ const SearchScreen = () => {
   )
 }
 const styles = StyleSheet.create({
-  searchStyles: { backgroundColor: "#B8ECFF" },
-  BusinessesListStyles: { backgroundColor: "#B8ECFF" }
+  // searchStyles: { backgroundColor: "#B8ECFF" },
+  // BusinessesListStyles: { backgroundColor: "#B8ECFF" }
 })
 export default SearchScreen

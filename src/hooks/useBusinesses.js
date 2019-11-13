@@ -19,6 +19,7 @@ export default () => {
           categories: "food,bars,restaurants"
         }
       })
+
       setResults(response.data.businesses)
     } catch (err) {
       setErrorMessage("Oops! Something went wrong")

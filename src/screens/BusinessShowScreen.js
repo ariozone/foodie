@@ -1,18 +1,20 @@
 import React from "react"
 import { View, Image, Text, StyleSheet, FlatList } from "react-native"
 import yelp from "../services/httpServices"
-import MapView from "react-native-maps"
+import MapView, { Marker } from "react-native-maps"
 
 const BusinessShowScreen = ({ navigation }) => {
   const [business, setBusiness] = React.useState(null)
   const id = navigation.getParam("id")
-  const getBusiness = async id => {
-    const response = await yelp.get("/" + id)
+  const getBusiness = async businessId => {
+    const response = await yelp.get("/" + businessId)
     setBusiness(response.data)
   }
+
   React.useEffect(() => {
     getBusiness(id), []
   })
+
   if (!business) return null
   const { latitude, longitude } = business.coordinates
   return (
@@ -37,7 +39,9 @@ const BusinessShowScreen = ({ navigation }) => {
           longitudeDelta: 0.0421
         }}
         style={styles.mapStyles}
-      />
+      >
+        <Marker coordinate={{ latitude, longitude }} title={business.name} />
+      </MapView>
     </View>
   )
 }
