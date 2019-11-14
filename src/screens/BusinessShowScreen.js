@@ -1,7 +1,7 @@
 import React from "react"
 import { View, Image, Text, StyleSheet, FlatList } from "react-native"
 import yelp from "../services/httpServices"
-import MapView, { Marker } from "react-native-maps"
+//import MapView, { Marker } from "react-native-maps"
 
 const BusinessShowScreen = ({ navigation }) => {
   const [business, setBusiness] = React.useState(null)
@@ -16,7 +16,7 @@ const BusinessShowScreen = ({ navigation }) => {
   })
 
   if (!business) return null
-  const { latitude, longitude } = business.coordinates
+  // const { latitude, longitude } = business.coordinates
   return (
     <View style={styles.businessStyles}>
       <Text style={styles.textStyles}>{business.name} </Text>
@@ -31,7 +31,7 @@ const BusinessShowScreen = ({ navigation }) => {
           )
         }}
       ></FlatList>
-      <MapView
+      {/* <MapView
         initialRegion={{
           latitude,
           longitude,
@@ -40,18 +40,25 @@ const BusinessShowScreen = ({ navigation }) => {
         }}
         style={styles.mapStyles}
       >
-        <Marker coordinate={{ latitude, longitude }} title={business.name} />
-      </MapView>
+        <Marker
+          coordinate={{ latitude, longitude }}
+          title={business.name}
+          description={business.is_closed ? "Closed" : "Open"}
+        />
+      </MapView> */}
     </View>
   )
 }
 const styles = StyleSheet.create({
   businessStyles: {
     alignItems: "center",
-    marginTop: 10
+
+    backgroundColor: "black"
   },
   textStyles: {
-    fontSize: 18
+    fontSize: 20,
+    color: "white",
+    marginVertical: 10
   },
   imageStyles: {
     height: 200,
@@ -60,7 +67,8 @@ const styles = StyleSheet.create({
   },
   mapStyles: {
     width: "100%",
-    height: 300
+    height: 400,
+    margin: 5
   }
 })
 export default BusinessShowScreen
