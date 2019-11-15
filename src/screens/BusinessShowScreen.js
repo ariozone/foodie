@@ -1,19 +1,21 @@
 import React from "react"
 import { View, Image, Text, StyleSheet, FlatList } from "react-native"
 import yelp from "../services/httpServices"
+
 //import MapView, { Marker } from "react-native-maps"
 
 const BusinessShowScreen = ({ navigation }) => {
   const [business, setBusiness] = React.useState(null)
   const id = navigation.getParam("id")
+  let mounted = true
   const getBusiness = async businessId => {
     const response = await yelp.get("/" + businessId)
     setBusiness(response.data)
   }
 
   React.useEffect(() => {
-    getBusiness(id), []
-  })
+    getBusiness(id)
+  }, [id])
 
   if (!business) return null
   // const { latitude, longitude } = business.coordinates

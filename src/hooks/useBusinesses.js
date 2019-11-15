@@ -22,6 +22,7 @@ export default () => {
 
       setResults(response.data.businesses)
     } catch (err) {
+      console.log(err)
       setErrorMessage("Oops! Something went wrong")
     }
   }
