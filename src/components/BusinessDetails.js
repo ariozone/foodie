@@ -18,8 +18,8 @@ const BusinessDetails = ({ details }) => {
 }
 const styles = StyleSheet.create({
   imageStyles: {
-    width: 250,
-    height: 120,
+    width: 200,
+    height: 150,
     borderRadius: 5,
     marginBottom: 5
   },

@@ -2,12 +2,12 @@ import React from "react"
 import { View, Image, Text, StyleSheet, FlatList } from "react-native"
 import yelp from "../services/httpServices"
 
-//import MapView, { Marker } from "react-native-maps"
+import MapView, { Marker } from "react-native-maps"
 
 const BusinessShowScreen = ({ navigation }) => {
   const [business, setBusiness] = React.useState(null)
   const id = navigation.getParam("id")
-  let mounted = true
+
   const getBusiness = async businessId => {
     const response = await yelp.get("/" + businessId)
     setBusiness(response.data)
@@ -18,10 +18,10 @@ const BusinessShowScreen = ({ navigation }) => {
   }, [id])
 
   if (!business) return null
-  // const { latitude, longitude } = business.coordinates
+  const { latitude, longitude } = business.coordinates
   return (
     <View style={styles.businessStyles}>
-      <Text style={styles.textStyles}>{business.name} </Text>
+      <Text style={styles.textStyles}>{business.name}</Text>
       <FlatList
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -33,7 +33,7 @@ const BusinessShowScreen = ({ navigation }) => {
           )
         }}
       ></FlatList>
-      {/* <MapView
+      <MapView
         initialRegion={{
           latitude,
           longitude,
@@ -47,7 +47,7 @@ const BusinessShowScreen = ({ navigation }) => {
           title={business.name}
           description={business.is_closed ? "Closed" : "Open"}
         />
-      </MapView> */}
+      </MapView>
     </View>
   )
 }
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   },
   imageStyles: {
     height: 200,
-    width: 300,
+    width: 350,
     margin: 5
   },
   mapStyles: {
