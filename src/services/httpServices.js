@@ -7,4 +7,5 @@ const yelp = axios.create({
     Authorization: `Bearer ${credentials.API_KEY}`
   }
 })
+
 export default yelp

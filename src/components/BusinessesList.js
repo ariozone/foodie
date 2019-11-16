@@ -1,21 +1,29 @@
 import React from "react"
-import { Text, View, StyleSheet, FlatList } from "react-native"
+import {
+  Text,
+  View,
+  StyleSheet,
+  FlatList,
+  TouchableOpacity
+} from "react-native"
+import { withNavigation } from "react-navigation"
 import BusinessDetails from "./BusinessDetails"
 
-const BusinessesList = ({ title, businesses }) => {
+const BusinessesList = ({ title, businesses, navigation }) => {
   return (
     <View>
       <Text style={styles.titleStyle}>{businesses.length > 0 && title} </Text>
-      {/* <Text>
-        Number or {title} Businesses: {businesses.length}
-      </Text> */}
       <FlatList
         horizontal
         showsHorizontalScrollIndicator={false}
         data={businesses}
         keyExtractor={business => business.id}
         renderItem={({ item }) => (
-          <BusinessDetails details={item}></BusinessDetails>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("BusinessShow", { id: item.id })}
+          >
+            <BusinessDetails details={item}></BusinessDetails>
+          </TouchableOpacity>
         )}
       ></FlatList>
     </View>
@@ -31,4 +39,4 @@ const styles = StyleSheet.create({
     marginBottom: 5
   }
 })
-export default BusinessesList
+export default withNavigation(BusinessesList)

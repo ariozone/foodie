@@ -11,20 +11,20 @@ const SearchScreen = () => {
   const filterByPrice = price => {
     return results.filter(result => result.price === price)
   }
-
   return (
     <>
-      <SearchBar
-        query={query}
-        onQueryChange={setQuery}
-        onSubmit={() => searchApi(query)}
-      ></SearchBar>
+      <View style={styles.searchStyles}>
+        <SearchBar
+          query={query}
+          onQueryChange={setQuery}
+          onSubmit={() => searchApi(query)}
+        ></SearchBar>
+      </View>
       {errorMessage ? (
         <Text>{errorMessage}</Text>
       ) : (
         <ScrollView>
-          <View>
-            {/* <Text>Found {results.length} restaurants.</Text> */}
+          <View style={styles.BusinessesListStyles}>
             <BusinessesList
               businesses={filterByPrice("$")}
               title='$'
@@ -47,9 +47,8 @@ const SearchScreen = () => {
     </>
   )
 }
-const Styles = StyleSheet.create({
-  container: {
-    marginHorizontal: 10
-  }
+const styles = StyleSheet.create({
+  // searchStyles: { backgroundColor: "#B8ECFF" },
+  // BusinessesListStyles: { backgroundColor: "#B8ECFF" }
 })
 export default SearchScreen
