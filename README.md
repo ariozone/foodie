@@ -1,6 +1,8 @@
 # foodie
 ##### A React Native app for food lovers to help them find their favorite food or restaurant quickly.
 
+### [Live Demo](https://expo.io/@ariozone/foodie)
+
 ## Technologies
 - react-native
 - react
