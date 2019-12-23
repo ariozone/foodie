@@ -15,6 +15,19 @@
 - expo-cli
 - yelp-api
 
+## Usage
+Clone and install dependencies.
+```
+git clone https://github.com/ariozone/foodie.git
+cd foodie/
+npm install
+```
+Run the app
+```
+npm start
+Scan the QR in Expo web app that is open in the browser
+Install/Open the Expo App on your mobile device
+
 
 
 
