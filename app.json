@@ -25,6 +25,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "https://github.com/ariozone/foodie",
+    "githubUrl": "https://github.com/ariozone/foodie"
   }
 }
