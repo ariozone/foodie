@@ -25,6 +25,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "Foodie is a React Native app that helps food lovers find their favorite food easily.",
+    "githubUrl": "https://github.com/ariozone/foodie"
   }
 }
