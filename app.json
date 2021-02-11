@@ -3,7 +3,6 @@
     "name": "Foodie",
     "slug": "foodie",
     "privacy": "public",
-    "sdkVersion": "35.0.0",
     "platforms": [
       "ios",
       "android",
